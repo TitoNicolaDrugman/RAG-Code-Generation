@@ -1,0 +1,74 @@
+QUERY TESTATA (subset della query totale)
+
+class String(PrimitiveProperty):
+
+python -m snippet_retrievers.test_run --q "class String(PrimitiveProperty):" --k 3 --metric bm25 --kb-file "temp_downloaded_kbs\\bokeh__bokeh\\kb_bokeh__bokeh.json"
+
+
+
+Metric: bm25
+k: 3
+Params: k1=1.5, b=0.75, num_docs=1531, model=microsoft/codebert-base, rrf_k=60
+Query: class String(PrimitiveProperty):
+--------------------------------------------------------------------------------
+[#1] | bm25=15.271111 cosine=0.952330 rrf=0.024267 | folder=bokeh__bokeh | kb_file=kb_bokeh__bokeh.json
+class String(PrimitiveProperty):
+    """ String type property. """
+    _underlying_type = string_types
+--------------------------------------------------------------------------------
+[#2] | bm25=10.755162 cosine=0.957976 rrf=0.026999 | folder=bokeh__bokeh | kb_file=kb_bokeh__bokeh.json
+class Bool(PrimitiveProperty):
+    """ Boolean type property. """
+    _underlying_type = (bool,)
+--------------------------------------------------------------------------------
+[#3] | bm25=10.647513 cosine=0.950613 rrf=0.023172 | folder=bokeh__bokeh | kb_file=kb_bokeh__bokeh.json
+class Int(PrimitiveProperty):
+    """ Signed integer type property. """
+    _underlying_type = bokeh_integer_types
+--------------------------------------------------------------------------------
+
+
+
+
+Metric: cosine
+k: 3
+Params: model=microsoft/codebert-base, pooling=mean, remove_top_pcs=3, max_length=512, num_docs=1531, rrf_k=60, bm25_k1=1.5, bm25_b=0.75
+Query: class String(PrimitiveProperty):
+--------------------------------------------------------------------------------
+[#1] | bm25=1.952926 cosine=0.980665 rrf=0.016393 | folder=bokeh__bokeh | kb_file=kb_bokeh__bokeh.json
+class GT(object): pass
+--------------------------------------------------------------------------------
+[#2] | bm25=1.952926 cosine=0.979997 rrf=0.016129 | folder=bokeh__bokeh | kb_file=kb_bokeh__bokeh.json
+class EQ(object): pass
+--------------------------------------------------------------------------------
+[#3] | bm25=1.952926 cosine=0.979714 rrf=0.015873 | folder=bokeh__bokeh | kb_file=kb_bokeh__bokeh.json
+class NEQ(object): pass
+--------------------------------------------------------------------------------
+
+
+
+Metric: hybrid_rrf
+k: 3
+Params: k1=1.5, b=0.75, num_docs=1531, model=microsoft/codebert-base, rrf_k=60
+Query: class String(PrimitiveProperty):
+--------------------------------------------------------------------------------
+[#1] | bm25=10.755162 cosine=0.957976 rrf=0.026999 | folder=bokeh__bokeh | kb_file=kb_bokeh__bokeh.json
+class Bool(PrimitiveProperty):
+    """ Boolean type property. """
+    _underlying_type = (bool,)
+--------------------------------------------------------------------------------
+[#2] | bm25=5.641264 cosine=0.961269 rrf=0.026334 | folder=bokeh__bokeh | kb_file=kb_bokeh__bokeh.json
+class TextEditor(CellEditor):
+    """ Multi-line string cell editor.
+
+    """
+--------------------------------------------------------------------------------
+[#3] | bm25=5.641264 cosine=0.959477 rrf=0.025987 | folder=bokeh__bokeh | kb_file=kb_bokeh__bokeh.json
+class ToolEvents(PlotObject):
+    """
+
+    """
+
+    geometries = List(Dict(String, Any))
+--------------------------------------------------------------------------------
+

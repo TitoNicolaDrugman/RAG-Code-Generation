@@ -1,0 +1,6 @@
+sacrebleu>=2.3.1
+
+# (Opzionali per CodeBLEU completo: installali solo se l'ambiente li supporta)
+# codebleu==0.7.1
+# tree-sitter==0.23.2
+# tree-sitter-languages==1.10.2

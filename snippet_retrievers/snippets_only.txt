@@ -1,0 +1,36 @@
+def make_rdm1(mycc, t1, t2, l1, l2, ao_repr=False):
+    r'''
+    One-particle density matrix in the molecular spin-orbital representation
+    (the occupied-virtual blocks from the orbital response contribution are
+    not included).
+
+    dm1[p,q] = <q^\dagger p>  (p,q are spin-orbitals)
+
+    The convention of 1-pdm is based on McWeeney's book, Eq (5.4.20).
+    The contraction between 1-particle Hamiltonian and rdm1 is
+    E = einsum('pq,qp', h1, rdm1)
+    '''
+    d1 = _gamma1_intermediates(mycc, t1, t2, l1, l2)
+    return _make_rdm1(mycc, d1, with_frozen=True, ao_repr=ao_repr)
+--------------------------------------------------------------------------------
+def extra_force(self, atom_id, envs):
+        '''Hook for extra contributions in analytical gradients.
+
+        Contributions like the response of auxiliary basis in density fitting
+        method, the grid response in DFT numerical integration can be put in
+        this function.
+        '''
+        #1 force from exxdiv corrections when madelung constant has non-zero derivative
+        #2 DFT grid response
+        return 0
+--------------------------------------------------------------------------------
+def kernel(self, *args, **kwargs):
+        '''
+        Kernel function is the main driver of a method.  Every method should
+        define the kernel function as the entry of the calculation.  Note the
+        return value of kernel function is not strictly defined.  It can be
+        anything related to the method (such as the energy, the wave-function,
+        the DFT mesh grids etc.).
+        '''
+        pass
+--------------------------------------------------------------------------------

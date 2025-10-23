@@ -1,0 +1,54 @@
+COSE DA FARE TITO
+
+----------------------------------
+
+1 - controlare come è fatto l'embdding e vedere se correggerlo 
+
+python -m snippet_retrievers.test_run --q "websocket worker and bokeh server" --k 5 --metric hybrid --kb-file "temp_downloaded_kbs\bokeh__bokeh\kb_bokeh__bokeh.json"
+
+=> return soltanto consigli brutti
+
+------------------------------------
+
+? - vedi TODO_test.txt
+
+------------------------------------
+
+
+
+2 - considerare la pulizia degli snippet 
+    - togliere quelli troppo corti 
+
+
+------------------------------------
+
+3 - fare embedding di tutte le altre kb
+
+
+------------------------------------
+
+4 - cambiare prompt? per dire che gli snippets che incolliamo pensiamo possano servire ma che LLM deve valure se sono utili o no
+
+
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+
+
+
+
+
+python -m snippet_retrievers.test_run --q "websocket worker and bokeh server" --k 5 --metric cosine --kb-file "temp_downloaded_kbs\bokeh__bokeh\kb_bokeh__bokeh.json"
+
+
+/\/\/\/\/\/\/\/\       DONE       /\/\/\/\/\/\/\/\/\/\/\/\/\/\
+
+
+----------------------------------
+
+3 - printare nel txt pure la metrica hybrid
+
+----------------------------------
+
+FIX THE ERROR - SEE CHATGPT
+controllare se facendo hybrid e dopo cosine (o viceversa) si creano due file meta.json
+
+------------------------------------
